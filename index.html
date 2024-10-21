@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; url=wIP.html">
-  </head>
-  <body>
-    <p>Hello, world!</p>
-    <a href="wIP.html">Test</a>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draggable Folders</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- First folder -->
+  <div class="folder-container" id="folder-container-1" style="left: 50px; top: 50px;">
+    <div class="folder" data-url="wIP.html"></div>
+    <span class="folder-name">CS Projects (School)</span>
+  </div>
+
+  <!-- Second folder -->
+  <div class="folder-container" id="folder-container-2" style="left: 200px; top: 50px;">
+    <div class="folder" data-url="wIP.html"></div>
+    <span class="folder-name">Personal</span>
+  </div>
+
+  <!-- Third folder -->
+  <div class="folder-container" id="folder-container-3" style="left: 350px; top: 50px;">
+    <div class="folder" data-url="astro.html"></div>
+    <span class="folder-name">Astro</span>
+  </div>
+
+
+  <!-- Reload button -->
+  <button id="reload-button">Reload Page</button>
+
+  <script src="script.js"></script>
+
+</body>
 </html>
