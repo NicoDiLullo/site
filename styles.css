@@ -1,0 +1,20 @@
+.folder-container {
+    position: absolute;
+    text-align: center;
+  }
+
+  .folder {
+    width: 100px;
+    height: 100px;
+    background-image: url('images/folderbgrem.png'); /* URL of the folder image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: grab;
+  }
+
+  .folder-name {
+    position: relative;
+    top: -25px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
