@@ -6,7 +6,7 @@
   .folder {
     width: 100px;
     height: 100px;
-    background-image: url('images/folderbgrem.png'); /* URL of the folder image */
+    background-image: url('images/folderbgrem.png');
     background-size: contain;
     background-repeat: no-repeat;
     cursor: grab;

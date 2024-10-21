@@ -19,7 +19,6 @@ document.querySelectorAll('.folder-container').forEach(folderContainer => {
   
     const folder = folderContainer.querySelector('.folder');
     folder.addEventListener('dblclick', function() {
-      window.location.href = "https://example.com"; // URL of the page you want to navigate to
+      window.location.href = "https://example.com";
     });
   });
-  
