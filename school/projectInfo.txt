@@ -1,0 +1,5 @@
+Unfortunately, every CS project I have completed (with the exception of chess, which is downloadable) has been
+an assignment where everyone in the class is building the same thing. Thus my code is considered solution code for these
+assignments, and I am expressly prohibited from posting said code online. However, I can provide it to potential employers
+on request. Just email me at nicholas_dilullo@brown.edu.
+
