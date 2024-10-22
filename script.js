@@ -18,19 +18,17 @@ document.querySelectorAll('.folder-container').forEach(folderContainer => {
       document.addEventListener('mouseup', stopDrag);
     });
   
-    // Handle double-click to open folder's URL
     const folder = folderContainer.querySelector('.folder');
     folder.addEventListener('dblclick', function() {
-      const url = folder.getAttribute('data-url'); // Get the URL from the data-url attribute
+      const url = folder.getAttribute('data-url');
       if (url) {
-        window.location.href = url; // Navigate to the specified URL
+        window.location.href = url;
       }
     });
   });
   
-  // Reload page when the button is clicked
   const reloadButton = document.getElementById('reload-button');
   reloadButton.addEventListener('click', function() {
-    location.reload(); // Reload the page
+    location.reload();
   });
   
