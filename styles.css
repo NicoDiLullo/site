@@ -18,3 +18,20 @@
     font-family: Arial, sans-serif;
     font-size: 14px;
   }
+
+  #reload-button {
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    width: 60px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  #reload-button img {
+    width: 100%;
+    height: 100%;
+  }
