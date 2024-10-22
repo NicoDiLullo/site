@@ -1,4 +1,3 @@
-// Handle dragging functionality for each folder
 document.querySelectorAll('.folder-container').forEach(folderContainer => {
     folderContainer.addEventListener('mousedown', function(e) {
       let offsetX = e.clientX - folderContainer.offsetLeft;
