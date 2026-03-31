@@ -16,13 +16,17 @@ export function EmailView() {
     <div className="view-content email-view">
       <div className="email-icon-row">
         <svg width="40" height="40" viewBox="0 0 72 72" fill="none">
-          <rect width="72" height="72" rx="14" fill="white" />
-          <path d="M12 22l24 17 24-17H12z" fill="#EA4335" />
-          <path d="M12 22v28h10V34l-10-12z" fill="#C5221F" />
-          <path d="M60 22v28H50V34l10-12z" fill="#C5221F" />
-          <path d="M22 34v16H50V34L36 44 22 34z" fill="#FBBC04" />
-          <path d="M12 22l10 12 14 10 14-10 10-12H12z" fill="#EA4335" />
-          <path d="M22 34l14 10 14-10V22H22v12z" fill="white" />
+          <defs>
+            <linearGradient id="mailBg2" x1="36" y1="0" x2="36" y2="72" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#62ABFC" />
+              <stop offset="100%" stopColor="#0C73F2" />
+            </linearGradient>
+          </defs>
+          <rect width="72" height="72" rx="16" fill="url(#mailBg2)" />
+          <rect x="9" y="21" width="54" height="37" rx="3" fill="white" />
+          <path d="M9 21 L36 43 L63 21" fill="none" stroke="#0C73F2" strokeWidth="2.5" strokeLinejoin="round" />
+          <path d="M9 58 L30 39" stroke="#0C73F2" strokeWidth="1.5" strokeOpacity="0.3" />
+          <path d="M63 58 L42 39" stroke="#0C73F2" strokeWidth="1.5" strokeOpacity="0.3" />
         </svg>
         <span className="email-heading">Email</span>
       </div>

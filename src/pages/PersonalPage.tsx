@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react'
-import { AppIcon, LinkedInSVG, GmailSVG } from '../components/AppIcon'
+import { AppIcon, LinkedInSVG, AppleMailSVG } from '../components/AppIcon'
 import { Window } from '../components/Window'
 import { EmailView } from '../views/EmailView'
 
@@ -28,7 +28,7 @@ export function PersonalPage({ onBack }: PersonalPageProps) {
           <LinkedInSVG />
         </AppIcon>
         <AppIcon label="Email" onClick={() => setEmailOpen(true)}>
-          <GmailSVG />
+          <AppleMailSVG />
         </AppIcon>
       </div>
 

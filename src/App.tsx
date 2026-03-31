@@ -98,8 +98,13 @@ export default function App() {
         </Window>
       ))}
 
-      <button className="reload-button" onClick={() => location.reload()}>
-        <img src="/reload.png" alt="Reload" />
+      <button className="reload-button" onClick={() => location.reload()} title="Reload">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 4V1L8 5l4 4V6a6 6 0 016 6 6 6 0 01-6 6 6 6 0 01-6-6H4a8 8 0 008 8 8 8 0 008-8 8 8 0 00-8-8z"
+            fill="currentColor"
+          />
+        </svg>
       </button>
     </div>
   )

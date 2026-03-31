@@ -25,19 +25,24 @@ export function LinkedInSVG() {
   )
 }
 
-export function GmailSVG() {
+export function AppleMailSVG() {
   return (
     <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="72" height="72" rx="14" fill="white" />
-      <path d="M12 22h48v28H12z" fill="white" />
-      <path d="M12 22l24 17 24-17" stroke="#EA4335" strokeWidth="2" fill="none" />
-      <path d="M12 22v28h10V34l14 10 14-10v16h10V22" fill="white" />
-      <path d="M12 22l24 17 24-17H12z" fill="#EA4335" />
-      <path d="M12 22v28h10V34l-10-12z" fill="#C5221F" />
-      <path d="M60 22v28H50V34l10-12z" fill="#C5221F" />
-      <path d="M22 34v16H50V34L36 44 22 34z" fill="#FBBC04" />
-      <path d="M12 22l10 12 14 10 14-10 10-12H12z" fill="#EA4335" />
-      <path d="M22 34l14 10 14-10V22H22v12z" fill="white" />
+      <defs>
+        <linearGradient id="mailBg" x1="36" y1="0" x2="36" y2="72" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#62ABFC" />
+          <stop offset="100%" stopColor="#0C73F2" />
+        </linearGradient>
+      </defs>
+      <rect width="72" height="72" rx="16" fill="url(#mailBg)" />
+      {/* envelope body */}
+      <rect x="9" y="21" width="54" height="37" rx="3" fill="white" />
+      {/* top flap V */}
+      <path d="M9 21 L36 43 L63 21" fill="none" stroke="#0C73F2" strokeWidth="2.5" strokeLinejoin="round" />
+      {/* bottom-left fold */}
+      <path d="M9 58 L30 39" stroke="#0C73F2" strokeWidth="1.5" strokeOpacity="0.3" />
+      {/* bottom-right fold */}
+      <path d="M63 58 L42 39" stroke="#0C73F2" strokeWidth="1.5" strokeOpacity="0.3" />
     </svg>
   )
 }
