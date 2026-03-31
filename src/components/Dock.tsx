@@ -1,4 +1,4 @@
-import { LinkedInSVG, AppleMailSVG } from './AppIcon'
+import { LinkedInSVG, AppleMailSVG, GitHubSVG } from './AppIcon'
 
 interface DockProps {
   onMailClick: () => void
@@ -9,10 +9,17 @@ export function Dock({ onMailClick }: DockProps) {
     window.open('https://www.linkedin.com/in/nicholas-dilullo-3a0436185/', '_blank', 'noreferrer')
   }
 
+  const openGitHub = () => {
+    window.open('https://github.com/NicoDiLullo', '_blank', 'noreferrer')
+  }
+
   return (
     <div className="dock">
       <button className="dock-item" onClick={openLinkedIn} title="LinkedIn">
         <LinkedInSVG />
+      </button>
+      <button className="dock-item" onClick={openGitHub} title="GitHub">
+        <GitHubSVG />
       </button>
       <button className="dock-item" onClick={onMailClick} title="Email">
         <AppleMailSVG />
