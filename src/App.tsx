@@ -1,48 +1,41 @@
 import { useState, useCallback } from 'react'
 import { Folder } from './components/Folder'
 import { Window } from './components/Window'
-import { AstroView } from './views/AstroView'
+import { AstroPage } from './pages/AstroPage'
 import { SchoolView } from './views/SchoolView'
 import { PersonalView } from './views/PersonalView'
 import './App.css'
 
-type ViewId = 'astro' | 'school' | 'personal'
+type Page = 'desktop' | 'astro'
+type WindowId = 'school' | 'personal'
 
 interface OpenWindow {
-  id: ViewId
+  id: WindowId
   title: string
   initialX: number
   initialY: number
   zIndex: number
 }
 
-const VIEW_COMPONENTS: Record<ViewId, React.ComponentType> = {
-  astro: AstroView,
+const WINDOW_TITLES: Record<WindowId, string> = {
+  school: 'CS Projects (School)',
+  personal: 'Personal',
+}
+
+const VIEW_COMPONENTS: Record<WindowId, React.ComponentType> = {
   school: SchoolView,
   personal: PersonalView,
 }
 
-const FOLDERS: { id: ViewId; name: string; x: number; y: number }[] = [
-  { id: 'school', name: 'CS Projects (School)', x: 50, y: 50 },
-  { id: 'personal', name: 'Personal', x: 200, y: 50 },
-  { id: 'astro', name: 'Astro', x: 350, y: 50 },
-]
-
-const WINDOW_TITLES: Record<ViewId, string> = {
-  school: 'CS Projects (School)',
-  personal: 'Personal',
-  astro: 'Astrophysics',
-}
-
 export default function App() {
+  const [page, setPage] = useState<Page>('desktop')
   const [windows, setWindows] = useState<OpenWindow[]>([])
   const [topZ, setTopZ] = useState(10)
 
   const openWindow = useCallback(
-    (id: ViewId) => {
+    (id: WindowId) => {
       setWindows(prev => {
         if (prev.find(w => w.id === id)) {
-          // Bring existing window to front
           const nextZ = topZ + 1
           setTopZ(nextZ)
           return prev.map(w => (w.id === id ? { ...w, zIndex: nextZ } : w))
@@ -65,32 +58,42 @@ export default function App() {
     [topZ]
   )
 
-  const closeWindow = useCallback((id: ViewId) => {
+  const closeWindow = useCallback((id: WindowId) => {
     setWindows(prev => prev.filter(w => w.id !== id))
   }, [])
 
-  const focusWindow = useCallback(
-    (id: ViewId) => {
-      setTopZ(z => {
-        const nextZ = z + 1
-        setWindows(prev => prev.map(w => (w.id === id ? { ...w, zIndex: nextZ } : w)))
-        return nextZ
-      })
-    },
-    []
-  )
+  const focusWindow = useCallback((id: WindowId) => {
+    setTopZ(z => {
+      const nextZ = z + 1
+      setWindows(prev => prev.map(w => (w.id === id ? { ...w, zIndex: nextZ } : w)))
+      return nextZ
+    })
+  }, [])
+
+  if (page === 'astro') {
+    return <AstroPage onBack={() => setPage('desktop')} />
+  }
 
   return (
     <div className="desktop">
-      {FOLDERS.map(f => (
-        <Folder
-          key={f.id}
-          name={f.name}
-          initialX={f.x}
-          initialY={f.y}
-          onDoubleClick={() => openWindow(f.id)}
-        />
-      ))}
+      <Folder
+        name="CS Projects (School)"
+        initialX={50}
+        initialY={50}
+        onDoubleClick={() => openWindow('school')}
+      />
+      <Folder
+        name="Personal"
+        initialX={200}
+        initialY={50}
+        onDoubleClick={() => openWindow('personal')}
+      />
+      <Folder
+        name="Astro"
+        initialX={350}
+        initialY={50}
+        onDoubleClick={() => setPage('astro')}
+      />
 
       {windows.map(w => {
         const ViewComponent = VIEW_COMPONENTS[w.id]
