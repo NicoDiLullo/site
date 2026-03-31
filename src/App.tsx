@@ -2,12 +2,12 @@ import { useState, useCallback } from 'react'
 import { Folder } from './components/Folder'
 import { Window } from './components/Window'
 import { AstroPage } from './pages/AstroPage'
+import { PersonalPage } from './pages/PersonalPage'
 import { SchoolView } from './views/SchoolView'
-import { PersonalView } from './views/PersonalView'
 import './App.css'
 
-type Page = 'desktop' | 'astro'
-type WindowId = 'school' | 'personal'
+type Page = 'desktop' | 'astro' | 'personal'
+type WindowId = 'school'
 
 interface OpenWindow {
   id: WindowId
@@ -15,16 +15,6 @@ interface OpenWindow {
   initialX: number
   initialY: number
   zIndex: number
-}
-
-const WINDOW_TITLES: Record<WindowId, string> = {
-  school: 'CS Projects (School)',
-  personal: 'Personal',
-}
-
-const VIEW_COMPONENTS: Record<WindowId, React.ComponentType> = {
-  school: SchoolView,
-  personal: PersonalView,
 }
 
 export default function App() {
@@ -47,7 +37,7 @@ export default function App() {
           ...prev,
           {
             id,
-            title: WINDOW_TITLES[id],
+            title: 'CS Projects (School)',
             initialX: 150 + offset,
             initialY: 120 + offset,
             zIndex: nextZ,
@@ -70,9 +60,8 @@ export default function App() {
     })
   }, [])
 
-  if (page === 'astro') {
-    return <AstroPage onBack={() => setPage('desktop')} />
-  }
+  if (page === 'astro') return <AstroPage onBack={() => setPage('desktop')} />
+  if (page === 'personal') return <PersonalPage onBack={() => setPage('desktop')} />
 
   return (
     <div className="desktop">
@@ -86,7 +75,7 @@ export default function App() {
         name="Personal"
         initialX={200}
         initialY={50}
-        onDoubleClick={() => openWindow('personal')}
+        onDoubleClick={() => setPage('personal')}
       />
       <Folder
         name="Physics"
@@ -95,22 +84,19 @@ export default function App() {
         onDoubleClick={() => setPage('astro')}
       />
 
-      {windows.map(w => {
-        const ViewComponent = VIEW_COMPONENTS[w.id]
-        return (
-          <Window
-            key={w.id}
-            title={w.title}
-            onClose={() => closeWindow(w.id)}
-            initialX={w.initialX}
-            initialY={w.initialY}
-            zIndex={w.zIndex}
-            onFocus={() => focusWindow(w.id)}
-          >
-            <ViewComponent />
-          </Window>
-        )
-      })}
+      {windows.map(w => (
+        <Window
+          key={w.id}
+          title="CS Projects (School)"
+          onClose={() => closeWindow(w.id)}
+          initialX={w.initialX}
+          initialY={w.initialY}
+          zIndex={w.zIndex}
+          onFocus={() => focusWindow(w.id)}
+        >
+          <SchoolView />
+        </Window>
+      ))}
 
       <button className="reload-button" onClick={() => location.reload()}>
         <img src="/reload.png" alt="Reload" />
