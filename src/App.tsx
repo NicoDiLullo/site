@@ -1,9 +1,11 @@
 import { useState, useCallback } from 'react'
 import { Folder } from './components/Folder'
 import { Window } from './components/Window'
+import { Dock } from './components/Dock'
 import { AstroPage } from './pages/AstroPage'
 import { PersonalPage } from './pages/PersonalPage'
 import { SchoolView } from './views/SchoolView'
+import { EmailView } from './views/EmailView'
 import './App.css'
 
 type Page = 'desktop' | 'astro' | 'personal'
@@ -21,6 +23,7 @@ export default function App() {
   const [page, setPage] = useState<Page>('desktop')
   const [windows, setWindows] = useState<OpenWindow[]>([])
   const [topZ, setTopZ] = useState(10)
+  const [emailOpen, setEmailOpen] = useState(false)
 
   const openWindow = useCallback(
     (id: WindowId) => {
@@ -60,52 +63,62 @@ export default function App() {
     })
   }, [])
 
-  if (page === 'astro') return <AstroPage onBack={() => setPage('desktop')} />
-  if (page === 'personal') return <PersonalPage onBack={() => setPage('desktop')} />
+  const emailZIndex = topZ + 1
 
   return (
-    <div className="desktop">
-      <Folder
-        name="CS Projects (School)"
-        initialX={50}
-        initialY={50}
-        onDoubleClick={() => openWindow('school')}
-      />
-      <Folder
-        name="Personal"
-        initialX={200}
-        initialY={50}
-        onDoubleClick={() => setPage('personal')}
-      />
-      <Folder
-        name="Physics"
-        initialX={350}
-        initialY={50}
-        onDoubleClick={() => setPage('astro')}
-      />
-
-      {windows.map(w => (
-        <Window
-          key={w.id}
-          title="CS Projects (School)"
-          onClose={() => closeWindow(w.id)}
-          initialX={w.initialX}
-          initialY={w.initialY}
-          zIndex={w.zIndex}
-          onFocus={() => focusWindow(w.id)}
-        >
-          <SchoolView />
-        </Window>
-      ))}
-
-      <button className="reload-button" onClick={() => location.reload()} title="Reload">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M12 4V1L8 5l4 4V6a6 6 0 016 6 6 6 0 01-6 6 6 6 0 01-6-6H4a8 8 0 008 8 8 8 0 008-8 8 8 0 00-8-8z"
-            fill="currentColor"
+    <>
+      {page === 'astro' && <AstroPage onBack={() => setPage('desktop')} />}
+      {page === 'personal' && <PersonalPage onBack={() => setPage('desktop')} />}
+      {page === 'desktop' && (
+        <div className="desktop">
+          <Folder
+            name="CS Projects (School)"
+            initialX={50}
+            initialY={50}
+            onDoubleClick={() => openWindow('school')}
           />
-        </svg>
-      </button>
-    </div>
+          <Folder
+            name="Personal"
+            initialX={200}
+            initialY={50}
+            onDoubleClick={() => setPage('personal')}
+          />
+          <Folder
+            name="Physics"
+            initialX={350}
+            initialY={50}
+            onDoubleClick={() => setPage('astro')}
+          />
+
+          {windows.map(w => (
+            <Window
+              key={w.id}
+              title="CS Projects (School)"
+              onClose={() => closeWindow(w.id)}
+              initialX={w.initialX}
+              initialY={w.initialY}
+              zIndex={w.zIndex}
+              onFocus={() => focusWindow(w.id)}
+            >
+              <SchoolView />
+            </Window>
+          ))}
+        </div>
+      )}
+
+      {emailOpen && (
+        <Window
+          title="Email"
+          onClose={() => setEmailOpen(false)}
+          initialX={160}
+          initialY={140}
+          zIndex={emailZIndex}
+        >
+          <EmailView />
+        </Window>
+      )}
+
+      <Dock onMailClick={() => setEmailOpen(true)} />
+    </>
   )
 }
