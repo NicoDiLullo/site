@@ -60,7 +60,7 @@ export function AstroPage({ onBack }: AstroPageProps) {
         <button className="folder-page-back" onClick={onBack}>
           ‹ Desktop
         </button>
-        <span className="folder-page-title">Astro</span>
+        <span className="folder-page-title">Physics</span>
       </div>
 
       <div className="document-grid">
