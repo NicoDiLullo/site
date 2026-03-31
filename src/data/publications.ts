@@ -11,14 +11,14 @@ export interface Publication {
 export const publications: Publication[] = [
   {
     id: 'mushtukov-2024',
-    title: 'Magnetospheric Flows in X-ray Pulsars',
+    title: 'Magnetospheric Flows in X-ray Pulsars I: Instability at super-Eddington regime of accretion',
     citation:
       'Mushtukov, A. A., Ingram, A., Suleimanov, V. F., DiLullo, N., Middleton, M., Tsygankov, S. S., ... & Portegies Zwart, S. (2024). Magnetospheric flows in X-ray pulsars–I. Instability at super-Eddington regime of accretion. Monthly Notices of the Royal Astronomical Society, 530(1), 730-742.',
     contribution:
       'Responsible for code simulating gravitational attraction and centrifugal force. Also helped write and edit various sections.',
-    abstract: 'TODO: paste abstract here.',
-    fullText: 'TODO: paste or link to full paper text here.',
-    link: null,
+    abstract: 'Within the magnetospheric radius, the geometry of accretion flow in X-ray pulsars is shaped by a strong magnetic field of a neutron star. Starting at the magnetospheric radius, accretion flow follows field lines and reaches the stellar surface in small regions located close to the magnetic poles of a star. At low mass accretion rates, the dynamic of the flow is determined by gravitational attraction and rotation of the magnetosphere due to the centrifugal force. At the luminosity range close to the Eddington limit and above it, the flow is additionally affected by the radiative force. We construct a model simulating accretion flow dynamics over the magnetosphere, assuming that the flow strictly follows field lines and is affected by gravity, radiative and centrifugal forces only. The magnetic field of a NS is taken to be dominated by the dipole component of arbitrary inclination with respect to the accretion disc plane. We show that accretion flow becomes unstable at high mass accretion rates and tends to fluctuate quasi-periodically with a typical period comparable to the free-fall time from the inner disc radius. The inclination of a magnetic dipole with respect to the disc plane and strong anisotropy of X-ray radiation stabilise the mass accretion rate at the poles of a star, but the surface density of material covering the magnetosphere fluctuates even in this case.',
+    fullText: 'Viewable at the provided link',
+    link: 'https://arxiv.org/abs/2402.12965',
   },
   {
     id: 'wang-2024',
