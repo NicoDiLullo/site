@@ -49,8 +49,8 @@ export const publications: Publication[] = [
       'Zhou, H., DiLullo, N., Scheer, J., Yang, G., Swift, J., Foley, R., & Coulter, D. (2023). When Opportunity Knocks: Latest Results from the Thacher Supernova Search and Followup Program. Bulletin of the AAS, 55(6).',
     contribution:
       'Abstract submitted to the American Astronomical Society for my group\'s presentation at AAS 242. I worked on our proprietary data reduction pipeline, and built the first version of an image classifier for the UCSC/Thacher joint supernova search project.',
-    abstract: 'TODO: paste abstract here.',
-    fullText: 'TODO: paste or link to full paper text here.',
+    abstract: 'We present the latest results from the Thacher Supernova Search and Follow-up Program, including new nightly-sampled, multi-band light curves and analyses aimed at better understanding the progenitor objects and their environments. These new data and techniques are explored in the context of recent supernovae with high scientific value that we have been studying in collaboration with the Young Supernova Experiment. Additionally, we present progress on our supernova search program that includes an improved observational strategy, difference imaging techniques, and automated transient candidate identification.',
+    fullText: 'Presentation; no text',
     link: 'https://baas.aas.org/pub/2023n6i208p01',
   },
 ]
