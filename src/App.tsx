@@ -89,7 +89,7 @@ export default function App() {
         onDoubleClick={() => openWindow('personal')}
       />
       <Folder
-        name="Astro"
+        name="Physics"
         initialX={350}
         initialY={50}
         onDoubleClick={() => setPage('astro')}
