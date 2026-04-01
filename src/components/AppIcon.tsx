@@ -39,6 +39,21 @@ export function GitHubSVG() {
   )
 }
 
+export function GoogleScholarSVG() {
+  return (
+    <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="72" height="72" rx="16" fill="#4285F4" />
+      {/* mortarboard cap top */}
+      <polygon points="36,14 62,26 36,38 10,26" fill="white" />
+      {/* tassel string */}
+      <line x1="62" y1="26" x2="62" y2="42" stroke="white" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="62" cy="44" r="3" fill="white" />
+      {/* graduation gown / body */}
+      <path d="M20 32 L20 50 Q20 58 36 58 Q52 58 52 50 L52 32 L36 40 Z" fill="white" opacity="0.9" />
+    </svg>
+  )
+}
+
 export function AppleMailSVG() {
   return (
     <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">

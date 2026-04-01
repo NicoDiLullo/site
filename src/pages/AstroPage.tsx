@@ -67,7 +67,7 @@ export function AstroPage({ onBack }: AstroPageProps) {
         {publications.map(pub => (
           <Document
             key={pub.id}
-            title={pub.title}
+            title={pub.shortTitle}
             onClick={() => openPaper(pub)}
           />
         ))}
@@ -76,7 +76,7 @@ export function AstroPage({ onBack }: AstroPageProps) {
       {windows.map(w => (
         <Window
           key={w.pub.id}
-          title={w.pub.title}
+          title={w.pub.shortTitle}
           onClose={() => closePaper(w.pub.id)}
           initialX={w.initialX}
           initialY={w.initialY}

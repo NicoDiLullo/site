@@ -7,6 +7,7 @@ interface PaperViewProps {
 export function PaperView({ pub }: PaperViewProps) {
   return (
     <div className="view-content">
+      <h2 className="paper-full-title">{pub.title}</h2>
       <p className="paper-citation">{pub.citation}</p>
 
       <div className="contribution-bubble">
