@@ -1,8 +1,8 @@
 // ── Update these when you change books ──────────────────────
-const BOOK_TITLE = 'The Pragmatic Programmer'
-const BOOK_AUTHOR = 'Hunt & Thomas'
-const BOOK_PAGE = 142
-const BOOK_TOTAL_PAGES = 352
+const BOOK_TITLE = 'The Story of a New Name'
+const BOOK_AUTHOR = 'Elena Ferrante'
+const BOOK_PAGE = 117
+const BOOK_TOTAL_PAGES = 471
 const BOOK_COVER_GRADIENT = 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)'
 // ────────────────────────────────────────────────────────────
 
