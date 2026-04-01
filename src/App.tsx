@@ -8,6 +8,7 @@ import { SchoolView } from './views/SchoolView'
 import { EmailView } from './views/EmailView'
 import { ReadingWidget } from './components/ReadingWidget'
 import { WatchingWidget } from './components/WatchingWidget'
+import { WeatherWidget } from './components/WeatherWidget'
 import './App.css'
 
 type Page = 'desktop' | 'astro' | 'personal'
@@ -73,29 +74,30 @@ export default function App() {
       {page === 'personal' && <PersonalPage onBack={() => setPage('desktop')} />}
       {page === 'desktop' && (
         <div className="desktop">
+          <div className="desktop-widgets">
+            <WeatherWidget />
+            <ReadingWidget />
+            <WatchingWidget />
+          </div>
+
           <Folder
             name="CS Projects (School)"
-            initialX={50}
-            initialY={50}
+            initialX={window.innerWidth - 140}
+            initialY={20}
             onDoubleClick={() => openWindow('school')}
           />
           <Folder
             name="Personal"
-            initialX={200}
-            initialY={50}
+            initialX={window.innerWidth - 140}
+            initialY={150}
             onDoubleClick={() => setPage('personal')}
           />
           <Folder
             name="Physics"
-            initialX={350}
-            initialY={50}
+            initialX={window.innerWidth - 140}
+            initialY={280}
             onDoubleClick={() => setPage('astro')}
           />
-
-          <div className="desktop-widgets">
-            <ReadingWidget />
-            <WatchingWidget />
-          </div>
 
           {windows.map(w => (
             <Window
