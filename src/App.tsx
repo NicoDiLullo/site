@@ -2,10 +2,12 @@ import { useState, useCallback } from 'react'
 import { Folder } from './components/Folder'
 import { Window } from './components/Window'
 import { Dock } from './components/Dock'
-import { AstroPage } from './pages/AstroPage'
+import { PhysicsPage } from './pages/PhysicsPage'
 import { PersonalPage } from './pages/PersonalPage'
 import { SchoolView } from './views/SchoolView'
 import { EmailView } from './views/EmailView'
+import { ReadingWidget } from './components/ReadingWidget'
+import { WatchingWidget } from './components/WatchingWidget'
 import './App.css'
 
 type Page = 'desktop' | 'astro' | 'personal'
@@ -67,7 +69,7 @@ export default function App() {
 
   return (
     <>
-      {page === 'astro' && <AstroPage onBack={() => setPage('desktop')} />}
+      {page === 'astro' && <PhysicsPage onBack={() => setPage('desktop')} />}
       {page === 'personal' && <PersonalPage onBack={() => setPage('desktop')} />}
       {page === 'desktop' && (
         <div className="desktop">
@@ -89,6 +91,11 @@ export default function App() {
             initialY={50}
             onDoubleClick={() => setPage('astro')}
           />
+
+          <div className="desktop-widgets">
+            <ReadingWidget />
+            <WatchingWidget />
+          </div>
 
           {windows.map(w => (
             <Window

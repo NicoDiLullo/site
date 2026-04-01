@@ -13,9 +13,10 @@ interface OpenWindow {
 
 interface AstroPageProps {
   onBack: () => void
+  backLabel?: string
 }
 
-export function AstroPage({ onBack }: AstroPageProps) {
+export function AstroPage({ onBack, backLabel = 'Desktop' }: AstroPageProps) {
   const [windows, setWindows] = useState<OpenWindow[]>([])
   const [topZ, setTopZ] = useState(10)
 
@@ -58,7 +59,7 @@ export function AstroPage({ onBack }: AstroPageProps) {
     <div className="folder-page">
       <div className="folder-page-header">
         <button className="folder-page-back" onClick={onBack}>
-          ‹ Desktop
+          ‹ {backLabel}
         </button>
         <span className="folder-page-title">Physics</span>
       </div>
