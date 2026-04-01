@@ -358,6 +358,33 @@
   margin-bottom: 8px;
 }
 
+.dataset-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+}
+
+.dataset-size {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6e6e73;
+  font-family: 'SF Mono', 'Menlo', monospace;
+}
+
+.dataset-download {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0071e3;
+  text-decoration: none;
+}
+
+.dataset-download:hover {
+  text-decoration: underline;
+}
+
 .paper-link {
   display: inline-block;
   margin-top: 8px;
