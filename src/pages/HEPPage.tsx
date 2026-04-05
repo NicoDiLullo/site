@@ -25,7 +25,7 @@ export function HEPPage({ onBack }: HEPPageProps) {
 
   useEffect(() => {
     const path = subPage === null ? '/physics/hep' : '/physics/hep/qgjets'
-    window.goatcounter?.count({ path })
+    window.goatcounter?.count?.({ path })
   }, [subPage])
 
   const openDataset = useCallback(

@@ -26,7 +26,7 @@ export default function App() {
   const [page, setPage] = useState<Page>('desktop')
 
   useEffect(() => {
-    if (page === 'desktop') window.goatcounter?.count({ path: '/' })
+    if (page === 'desktop') window.goatcounter?.count?.({ path: '/' })
   }, [page])
   const [windows, setWindows] = useState<OpenWindow[]>([])
   const [topZ, setTopZ] = useState(10)

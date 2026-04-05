@@ -13,7 +13,7 @@ export function PhysicsPage({ onBack }: PhysicsPageProps) {
   const [subPage, setSubPage] = useState<SubPage>(null)
 
   useEffect(() => {
-    if (subPage === null) window.goatcounter?.count({ path: '/physics' })
+    if (subPage === null) window.goatcounter?.count?.({ path: '/physics' })
   }, [subPage])
 
   if (subPage === 'astro') {
