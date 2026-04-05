@@ -5,6 +5,10 @@
   padding: 0;
 }
 
+html, body {
+  background: #1c1c1e;
+}
+
 /* ── Desktop ── */
 .desktop {
   width: 100vw;
