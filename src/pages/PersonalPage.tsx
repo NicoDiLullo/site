@@ -1,8 +1,11 @@
+import { usePageView } from '../hooks/usePageView'
+
 interface PersonalPageProps {
   onBack: () => void
 }
 
 export function PersonalPage({ onBack }: PersonalPageProps) {
+  usePageView('/personal')
   return (
     <div className="folder-page">
       <div className="folder-page-header">

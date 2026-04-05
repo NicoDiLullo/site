@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Folder } from '../components/Folder'
 import { AstroPage } from './AstroPage'
 import { HEPPage } from './HEPPage'
@@ -11,6 +11,10 @@ interface PhysicsPageProps {
 
 export function PhysicsPage({ onBack }: PhysicsPageProps) {
   const [subPage, setSubPage] = useState<SubPage>(null)
+
+  useEffect(() => {
+    if (subPage === null) window.goatcounter?.count({ path: '/physics' })
+  }, [subPage])
 
   if (subPage === 'astro') {
     return <AstroPage onBack={() => setSubPage(null)} backLabel="Physics" />

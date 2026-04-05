@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { Folder } from '../components/Folder'
 import { Document } from '../components/Document'
 import { Window } from '../components/Window'
@@ -22,6 +22,11 @@ export function HEPPage({ onBack }: HEPPageProps) {
   const [subPage, setSubPage] = useState<SubPage>(null)
   const [windows, setWindows] = useState<OpenWindow[]>([])
   const [topZ, setTopZ] = useState(10)
+
+  useEffect(() => {
+    const path = subPage === null ? '/physics/hep' : '/physics/hep/qgjets'
+    window.goatcounter?.count({ path })
+  }, [subPage])
 
   const openDataset = useCallback(
     (dataset: Dataset) => {

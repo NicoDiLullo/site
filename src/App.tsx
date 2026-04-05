@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { Folder } from './components/Folder'
 import { Window } from './components/Window'
 import { Dock } from './components/Dock'
@@ -24,6 +24,10 @@ interface OpenWindow {
 
 export default function App() {
   const [page, setPage] = useState<Page>('desktop')
+
+  useEffect(() => {
+    if (page === 'desktop') window.goatcounter?.count({ path: '/' })
+  }, [page])
   const [windows, setWindows] = useState<OpenWindow[]>([])
   const [topZ, setTopZ] = useState(10)
   const [emailOpen, setEmailOpen] = useState(false)

@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react'
+import { usePageView } from '../hooks/usePageView'
 import { Document } from '../components/Document'
 import { Window } from '../components/Window'
 import { PaperView } from '../views/PaperView'
@@ -17,6 +18,7 @@ interface AstroPageProps {
 }
 
 export function AstroPage({ onBack, backLabel = 'Desktop' }: AstroPageProps) {
+  usePageView('/physics/astro')
   const [windows, setWindows] = useState<OpenWindow[]>([])
   const [topZ, setTopZ] = useState(10)
 
