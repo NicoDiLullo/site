@@ -1,6 +1,6 @@
 // ── Update these when you watch something new ────────────────
-const MOVIE_TITLE = 'Top Gun'
-const MOVIE_YEAR = 1986
+const MOVIE_TITLE = 'Project Hail Mary'
+const MOVIE_YEAR = 2026
 const MOVIE_COVER_GRADIENT = 'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)'
 // ────────────────────────────────────────────────────────────
 
